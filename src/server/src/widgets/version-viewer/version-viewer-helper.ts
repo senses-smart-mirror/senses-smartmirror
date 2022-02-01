@@ -38,7 +38,7 @@ export class ViewerViewer extends WidgetHelper {
    *
    */
   private handleListener(): void {
-      
+
     const cacheItem = this.getFromCache();
     if ( cacheItem ) {
       this.addEmitter("BROADCAST_VERSION_DATA", cacheItem.data);
@@ -64,7 +64,7 @@ export class ViewerViewer extends WidgetHelper {
 
   private fetchLastVersion(): Promise<any> {
     return new Promise((resolve, reject) => {
-      request("https://downloadmirror.nl/version/version.txt", { json: true }, (err: any, res: any, body: any) => {
+      request("https://senses-smartmirror.com/version/version.txt", { json: true }, (err: any, res: any, body: any) => {
         if (body) {
           resolve(body);
         } else {

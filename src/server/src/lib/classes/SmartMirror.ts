@@ -1456,7 +1456,7 @@ class SmartMirror {
    */
   private fetchLastVersion(): Promise<any> {
     return new Promise((resolve, reject) => {
-      request("https://downloadmirror.nl/version/version.txt", { json: true, strictSSL: false }, (err, res, body) => {
+      request("https://senses-smartmirror.com/version/version.txt", { json: true, strictSSL: false }, (err, res, body) => {
         if (body && body.version) {
           resolve(body);
         } else {
