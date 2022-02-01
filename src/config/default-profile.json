@@ -1,0 +1,154 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "rowSettings": {},
+      "topComponents": [
+        {
+          "id": "fadsf1-111efaf-afsadfdf-rererw",
+          "name": "clock",
+          "icon": "fad fa-clock",
+          "header": "",
+          "settings": [
+            {
+              "name": "header",
+              "value": ""
+            },
+            {
+              "name": "location",
+              "value": "Zaandam"
+            },
+            {
+              "name": "timezone",
+              "value": "Europe/Amsterdam"
+            },
+            {
+              "name": "showAMPM",
+              "value": false
+            },
+            {
+              "name": "showLocation",
+              "value": true
+            },
+            {
+              "name": "showDate",
+              "value": false
+            },
+            {
+              "name": "show",
+              "value": true
+            },
+            {
+              "name": "widget_design",
+              "value": "default"
+            }
+          ]
+        }
+      ],
+      "bottomComponents": []
+    },
+    {
+      "id": 2,
+      "rowSettings": {},
+      "topComponents": [
+        {
+          "id": "d1077b94-349b-45c0-b846-669b52792886",
+          "name": "weather",
+          "icon": "fad fa-sun-cloud",
+          "settings": [
+            {
+              "name": "header",
+              "value": ""
+            },
+            {
+              "name": "defaultUrl",
+              "value": "http://api.openweathermap.org/data/2.5/weather"
+            },
+            {
+              "name": "cityId",
+              "value": "Amsterdam"
+            },
+            {
+              "name": "apiKey",
+              "value": "f557d3c6726237ed6d67ffe843922ecc"
+            },
+            {
+              "name": "units",
+              "value": "metric"
+            },
+            {
+              "name": "lang",
+              "value": "en"
+            },
+            {
+              "name": "showDescription",
+              "value": true
+            },
+            {
+              "name": "showLocation",
+              "value": false
+            },
+            {
+              "name": "showWindInformation",
+              "value": false
+            },
+            {
+              "name": "interval",
+              "value": "600000"
+            },
+            {
+              "name": "show",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "bottomComponents": [
+        {
+          "id": "9dc40ea0-069e-4d86-8e21-31fdf92b5fa4",
+          "name": "qr",
+          "icon": "fad fa-qrcode",
+          "settings": [
+            {
+              "name": "background_color"
+            },
+            {
+              "name": "header",
+              "value": "QR App Code"
+            },
+            {
+              "name": "show",
+              "value": true
+            },
+            {
+              "name": "show_icon_in_header",
+              "value": false
+            },
+            {
+              "name": "time_show",
+              "value": ""
+            },
+            {
+              "name": "widget_width",
+              "value": 300
+            },
+            {
+              "name": "widget_design",
+              "value": "default"
+            }
+          ],
+          "helper": true,
+          "speech": "qr, code, app code"
+        }
+      ]
+    },
+    {
+      "id": 1000,
+      "rowSettings": {
+        "class": "overlay"
+      },
+      "topComponents": [],
+      "bottomComponents": []
+    }
+  ]
+}

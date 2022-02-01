@@ -7,6 +7,7 @@ src/config/backup-config.json
 src/config/stored-components.json
 src/config/saved-config.json
 src/config/*-profile.json
+!src/config/default-profile.json
 
 **/logs/*.log
 
