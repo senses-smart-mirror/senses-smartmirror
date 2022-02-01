@@ -1,0 +1,205 @@
+$borderColor: #333;
+
+.use-wallpaper {
+  &.use-light-theme {
+    $borderColor: rgba(255, 255, 255, .1) !global;
+  }
+}
+
+.use-light-theme {
+
+  i.fad.text-muted,
+  .text-muted {
+    color: rgba(255, 255, 255, .8);
+  }
+}
+
+.component {
+  flex-direction: column;
+  width: 400px;
+
+  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  perspective: 1000;
+  backface-visibility: hidden;
+
+  header {
+    width: 100%;
+
+    .header-icon {
+      margin-right: $small-spacing;
+    }
+  }
+
+  .loader {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 30px 0;
+  }
+}
+
+.headerH4 {
+  >header h4 {
+    position: relative;
+    background-color: transparent;
+    padding: 0 0 10px 0;
+    width: 100%;
+    color: white;
+    border-radius: 0;
+    font-weight: 400;
+
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      width: 50%;
+      border-bottom: 1px solid $borderColor;
+    }
+  }
+}
+
+.overlay {
+  .headerH4>header h4:after {
+    left: 25%;
+  }
+}
+
+.last {
+  .headerH4>header h4:after {
+    right: 0;
+    left: auto;
+  }
+}
+
+.component.blob-design {
+  position: relative;
+  padding: 20px;
+
+  @extend .headerH4;
+
+  > header, > section {
+    position: relative;
+    z-index: 2;
+  }
+
+  &:after {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    background: transparent url('~@/assets/vector.png') no-repeat left center;
+    background-size: contain;
+    width: 100%;
+    top: -20px;
+    left: -30px;
+    bottom: -50px;
+    right: -50px;
+  }
+}
+
+.component.background-box {
+  background-color: rgba(255,255,255,1);
+  border-radius: 10px;
+  color: rgb(58, 58, 58);
+  padding: $large-spacing;
+  box-shadow: 6px 6px 10px rgba(0,0,0,.1);
+
+  header h4 {
+    border-bottom: 1px solid #eee;
+    padding-left: 0;
+  }
+
+  i {
+    color: rgb(121, 121, 121);
+  }
+
+  .text-bright, .text-muted, .use-light-theme .text-muted {
+    color: rgb(58, 58, 58);
+  }
+
+  .divider, .use-light-theme .divider, hr {
+    background-color: #eee;
+  }
+}
+
+.component.box-design {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.07);
+  padding: $large-spacing;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, .1);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .02);
+
+  @extend .headerH4;
+}
+
+.clean-border {
+  background-color: none;
+  border: 2px solid rgba(255, 255, 255, 0.07);
+  padding: $large-spacing $large-spacing 0;
+  border-radius: 10px;
+}
+
+.component.clean-border-box {
+  @extend .headerH4;
+  @extend .clean-border;
+}
+
+.component.clean-border-box-dashed {
+  @extend .headerH4;
+  @extend .clean-border;
+
+  border-style: dashed;
+}
+
+// minimal design
+.component.minimal-design {
+  @extend .headerH4;
+
+  >header h4 {
+    border-bottom: 1px solid $borderColor;
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+// Minimal design
+.component.clean-design {
+  @extend .headerH4;
+
+  padding-bottom: 30px;
+
+  &:after {
+    position: absolute;
+    content: '';
+    right: -30px;
+    bottom: 10px;
+    border: 1px solid $borderColor;
+    border-width: 0 1px 1px 0;
+    height: 50%;
+    width: 50%;
+  }
+}
+
+/*
+*  Right column styling
+*/
+.last .component.box-design>header h4,
+.last .component.clean-design>header h4 {
+  &:after {
+    right: 0;
+    left: auto;
+  }
+}
+
+.last .component.clean-design {
+  &:after {
+    border-width: 0 0 1px 1px;
+    left: -30px;
+  }
+}

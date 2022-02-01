@@ -1,0 +1,44 @@
+.grid {  
+  .columns {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    transition: width .2s linear;
+  }
+
+  .column {
+    margin-right: 10px;
+    width: 50%;
+    // min-height: 50%;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &.last {
+      align-items: flex-end;
+
+      .component > header, header.title-header {
+        text-align: right;
+      }
+     }
+
+    .bottom-components {
+      margin-top: auto;
+    }
+  }
+
+  .overlay {
+      position: absolute;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+      bottom: 20%;
+      left: 0;
+    }
+}

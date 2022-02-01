@@ -1,0 +1,41 @@
+.component {
+	flex-direction: column;
+	width: 100%;
+  min-width: 100px;
+  padding: 14px 0;
+  display: inline-block;
+  text-align: center;
+	border-radius: 10px;
+	position: relative;
+	z-index: 99;
+	box-shadow: 6px 6px 3px rgba(37, 41, 46, .6);
+	background: #383F47;
+	color: white;
+	border-radius: 6px;
+	border: 1px solid rgba(255,255,255, 0.1);
+
+	.component-icon {
+		color: rgba(255,255,255,1);
+	}
+
+	&:after {
+		color: rgba(255,255,255,.2)!important;
+	}
+
+	header {
+		width: 100%;
+	}
+
+	.loader {
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		padding: 30px 0 ;
+	}
+
+	&.box {
+		background-color: rgba(255,255,255, 0.1);
+		padding: $large-spacing;
+		border-radius: 3px;
+	}
+}

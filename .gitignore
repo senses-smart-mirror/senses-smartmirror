@@ -1,0 +1,50 @@
+.DS_Store
+**/node_modules/
+**/dist/
+/dist
+src/backup
+src/config/backup-config.json
+src/config/stored-components.json
+src/config/saved-config.json
+src/config/*-profile.json
+
+**/logs/*.log
+
+/tests/e2e/videos/
+/tests/e2e/screenshots/
+
+/src/server/widgets/*
+
+/target
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+todo.md
+
+# Added for Expo setup
+.expo/*
+npm-debug.*
+*.jks
+*.p12
+*.key
+*.mobileprovision
+
+# Mobile builds
+/**/ios
+/**/android

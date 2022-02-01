@@ -1,0 +1,62 @@
+{
+  "name": "senses-smart-mirror-gui",
+  "version": "0.0.0",
+  "description": "Graphical User Interface part of Senses - Smart Mirror software",
+  "author": "Nick Thesing",
+  "private": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@devmobiliza/videojs-vimeo": "^0.6.0",
+    "axios": "^0.24.0",
+    "chart.js": "^2.9.4",
+    "core-js": "^3.6.5",
+    "gsap": "^3.9.1",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.34",
+    "socket.io-client": "^4.4.0",
+    "videojs-youtube": "^2.6.1",
+    "videojs7-vimeo": "^2.0.3",
+    "vue": "^2.6.11",
+    "vue-chartjs": "^3.5.1",
+    "vue-cryptoicon": "^0.18.0-a",
+    "vue-socket.io": "^3.0.10",
+    "vuetrend": "^0.3.4",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {
+      "vue/no-use-v-if-with-v-for": 0
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

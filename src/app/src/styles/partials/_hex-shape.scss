@@ -1,0 +1,33 @@
+.hex-shape {
+  position: relative;
+  width: 2.5em; height: 4.1em;
+  border-radius: .3em;
+  background-color: #191b1f;
+
+  &.is-orange {
+    background: #FF9143;
+
+    &:after, &:before {
+      background: #FF9143;
+    }
+  }
+}
+
+.hex-shape:before, .hex-shape:after {
+  position: absolute;
+  width: inherit; height: inherit;
+  border-radius: inherit;
+  background: inherit;
+  content: '';
+  left: 0;
+}
+
+.hex-shape:before {
+    -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+
+.hex-shape:after {
+    -webkit-transform: rotate(-60deg);
+  transform: rotate(-60deg);
+}

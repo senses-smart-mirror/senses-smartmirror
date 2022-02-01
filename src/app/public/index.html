@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.png" id="faviconTag" />
+  <title>Smart Mirror</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:100,200,300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p:100,200,300,400,500,700" rel="stylesheet">
+
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but Smart Mirror doesn't work properly without JavaScript enabled. Please enable it to
+      continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+
+  <script>
+    var darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    handleDarkmode(darkModeMediaQuery);
+    function handleDarkmode(e) {
+      var darkModeOn = e.matches;
+      var favicon = document.querySelector('link[rel="shortcut icon"]');
+      var largeFavicon = document.querySelectorAll('link[rel="icon"]');
+
+      if (darkModeOn) {
+        favicon.href = '/favicon.png';
+
+        if (largeFavicon.length) {
+          largeFavicon.forEach(icon => {
+            icon.href = 'img/icons/favicon.png';
+          });
+        }
+
+      } else {
+        favicon.href = '/favicon-light.png';
+
+        if (largeFavicon.length) {
+          largeFavicon.forEach(icon => {
+            icon.href = 'img/icons/favicon-light.png';
+          });
+        }
+      }
+    }
+    darkModeMediaQuery.addListener(handleDarkmode);
+  </script>
+</body>
+
+</html>

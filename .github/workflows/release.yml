@@ -1,0 +1,119 @@
+
+name: Senses - Build & Release
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    name: Build & Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.18.3'
+
+      - name: Create folder
+        working-directory: ./src
+        run: |
+          mkdir target
+
+      - name: build GUI
+        working-directory: ./src/gui
+        run: |
+          npm ci --quiet --no-progress
+          npm run build
+          mkdir ../target/gui
+          cp -r dist/* ../target/gui
+          cd ../target/gui
+          ls
+
+      - name: build Server
+        working-directory: ./src/server
+        run: |
+          npm ci --ignore-scripts
+          npm run build:js
+          mkdir ../target/server
+          cp -r dist/* ../target/server
+
+      - name: build APP
+        working-directory: ./src/app
+        run: |
+          npm ci --quiet --no-progress
+          npm run build
+          mkdir ../target/server/public
+          cp -r dist/* ../target/server/public
+
+      - name: Copy Server files
+        working-directory: ./src/server
+        run: |
+          cp -r package.json ../target/server
+          cp -r package-lock.json ../target/server
+          cp -r src/scripts ../target/server
+
+      - name: Copy config directory
+        working-directory: ./src
+        run: |
+          mkdir ./target/config
+          cp -r config/* ./target/config
+
+      - name: Copy Launcher files
+        working-directory: ./src
+        run: |
+          cp -r package.json ./target
+          cp -r senses.js ./target
+
+      - name: Zip
+        working-directory: ./src
+        run: |
+          mv target senses-smartmirror
+          zip -q senses-smartmirror.zip -r senses-smartmirror
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v
+          release_name: Release Draft
+          draft: true
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing its ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          asset_path: ./src/senses-smartmirror.zip
+          asset_name: senses-smartmirror.zip
+          asset_content_type: application/zip
+
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
+        with:
+          path: src/
+
+      - name: Create Version file
+        working-directory: ./
+        run: |
+          echo -e "{\"version\": \"${{ steps.package-version.outputs.current-version}}\"}" >> version.txt
+
+      - name: Deploy Version File
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
+        with:
+          username: ${{ secrets.SSH_USERNAME }}
+          server: ${{ secrets.SSH_SERVER }}
+          port: 22
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+          local_path: ./version.txt
+          remote_path: /var/www/senses-smartmirror.com/version
+
+          # sftp args
+          args: '-o ConnectTimeout=5'
+
+

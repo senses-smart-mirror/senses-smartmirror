@@ -1,0 +1,29 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.notification {
+  z-index: 99;
+  box-sizing: border-box;
+  padding: 30px 20px;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 5px;
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  right: 20px;
+
+  p {
+    margin: 0;
+  }
+
+  &.notification-success {
+    background-color: #1D8E25;
+  }
+}

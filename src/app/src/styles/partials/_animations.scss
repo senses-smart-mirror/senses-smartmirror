@@ -1,0 +1,52 @@
+@mixin animationFadeInLeft() {
+  animation-name: customFadeInLeft;
+  animation-fill-mode: both;
+}
+
+@mixin animationFadeOutLeft() {
+  animation-name: customFadeOutLeft;
+  animation-fill-mode: both;
+}
+
+@mixin animateListItems() {
+  animation-duration: 0.5s;
+  @include animationFadeInLeft();
+}
+
+@mixin animationListItemsDelay() {
+  @for $i from 1 through 20 {
+    li:nth-child(#{$i}) {
+      animation-delay: .15s * $i;
+    }
+
+    span:nth-child(#{$i}) {
+      animation-delay: .15s * $i;
+    }
+    
+    article:nth-child(#{$i}) {
+      animation-delay: .15s * $i;
+    }
+  }
+}
+
+@keyframes customFadeInLeft {
+ 0% {
+  opacity: 0;
+  transform: translateX(-200px);
+ }
+ 100% {
+  opacity: 1;
+  transform: translateX(0);
+ }
+}
+
+@keyframes customFadeOutLeft {
+  0% {
+  opacity: 1;
+  transform: translateX(0);
+ }
+ 100% {
+  opacity: 0;
+  transform: translateX(-200px);
+ }
+}

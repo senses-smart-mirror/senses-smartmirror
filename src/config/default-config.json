@@ -1,0 +1,54 @@
+{
+  "profiles": [
+    {
+      "name": "default",
+      "label": "Default",
+      "active": true,
+      "welcome": "Hi there, welcome back!"
+    }
+  ],
+  "settings": [
+    {
+      "name": "location",
+      "value": "Bostom"
+    },
+    {
+      "name": "timezone",
+      "value": "America/New_York"
+    },
+    {
+      "name": "starttime",
+      "value": "00:00"
+    },
+    {
+      "name": "endtime",
+      "value": "23:59"
+    },
+    {
+      "name": "column_1_animation",
+      "value": true
+    },
+    {
+      "name": "column_2_animation",
+      "value": false
+    },
+    {
+      "name": "show_clock",
+      "value": false
+    },
+	{
+		"name": "theme",
+		"value": "light"
+	},
+    {
+      "name": "border_width",
+      "value": "40"
+    },
+    {
+      "name": "font",
+      "value": "ubuntu"
+    }
+  ],
+  "lastUpdate": null,
+  "modules": []
+}

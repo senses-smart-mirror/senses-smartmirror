@@ -1,0 +1,19 @@
+{
+  "name": "senses-smart-mirror",
+  "description": "Senses - Smart Mirror, modern, clean & minimalistic designed software for your Smart Mirror. Senses is open source and rich of widgets ready to provide you an amazing view of day-to-day data.",
+  "version": "1.0.0",
+  "author": "Nick Thesing",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "main": "senses.js",
+  "bugs": "https://github.com/senses-smart-mirror/senses-smartmirror/issues",
+  "license": "MIT",
+  "scripts": {
+    "start": "DISPLAY=:0 NODE_ENV=production electron ."
+  },
+  "dependencies": {
+    "electron": "^8.2.1"
+  }
+}

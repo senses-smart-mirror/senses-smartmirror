@@ -1,0 +1,133 @@
+@mixin animationFadeInLeft() {
+  animation-name: customFadeInLeft;
+  animation-fill-mode: both;
+}
+
+@mixin animationFadeInRight() {
+  animation-name: customFadeInRight;
+  animation-fill-mode: both;
+}
+
+@mixin animationFadeOutLeft() {
+  animation-name: customFadeOutLeft;
+  animation-fill-mode: both;
+}
+
+@mixin animationFadeOutRight() {
+  animation-name: customFadeOutRight;
+  animation-fill-mode: both;
+}
+
+@mixin animateListItems() {
+  animation-duration: 1s;
+  @include animationFadeInLeft();
+}
+
+@mixin animationListItemsDelay() {
+  @for $i from 1 through 20 {
+    li:nth-child(#{$i}) {
+      animation-delay: .15s * $i;
+    }
+
+    span:nth-child(#{$i}) {
+      animation-delay: .15s * $i;
+    }
+
+    article:nth-child(#{$i}) {
+      animation-delay: .15s * $i;
+    }
+  }
+}
+
+@keyframes customFadeInLeft {
+ 0% {
+  opacity: 0;
+  transform: translateX(-200px);
+ }
+ 100% {
+  opacity: 1;
+  transform: translateX(0);
+ }
+}
+
+@keyframes customFadeInRight {
+ 0% {
+  opacity: 0;
+  transform: translateX(400px);
+ }
+ 100% {
+  opacity: 1;
+  transform: translateX(0);
+ }
+}
+
+@keyframes customFadeOutLeft {
+  0% {
+  opacity: 1;
+  transform: translateX(0);
+ }
+ 100% {
+  opacity: 0;
+  transform: translateX(-200px);
+ }
+}
+
+@keyframes customFadeOutRight {
+  0% {
+  opacity: 1;
+  transform: translateX(0);
+ }
+ 100% {
+  opacity: 0;
+  transform: translateX(400px);
+ }
+}
+
+/* animations */
+.component.animate {
+  display: block;
+  animation-duration: 1s;
+  @include animationFadeInLeft();
+
+  ul {
+    @include animationListItemsDelay();
+    li {
+      @include animateListItems();
+    }
+  }
+}
+
+.component.animate-out {
+  @include animationFadeOutLeft();
+
+  ul li {
+    @include animationFadeOutLeft();
+  }
+}
+
+.last .component.animate {
+  @include animationFadeInRight();
+
+  ul {
+    @include animationListItemsDelay();
+    li {
+      animation-duration: 1s;
+      @include animationFadeInRight();
+    }
+  }
+}
+
+.last .component.animate-out {
+  @include animationFadeOutRight();
+
+   ul li {
+    @include animationFadeOutRight();
+  }
+}
+
+.animate-list {
+  li {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}

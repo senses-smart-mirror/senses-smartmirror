@@ -1,0 +1,87 @@
+.grid {
+  height: 100%;
+
+  .columns {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .column {
+    height: 100%;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+
+    &.fill {
+      flex: 0;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      background-color: rgba(255, 255, 255, 0.07);
+      padding: 40px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-width: 0 1px 0 0;
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      box-shadow: 2px 2px 4px rgba(0,0,0,.02);
+      min-width: 100px;
+
+      &.last {
+        right: 0;
+        left: auto;
+        border-width: 0 0 0 1px;
+      }
+    }
+
+    &.last {
+      > section {
+        flex-direction: column;
+        display: flex;
+        align-items: flex-end;
+      }
+      .component>header,
+      header.title-header {
+        text-align: right;
+      }
+    }
+
+    .bottom-components {
+      margin-top: auto;
+    }
+  }
+
+  .overlay {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+
+    .component {
+      width: auto;
+    }
+
+    > div {
+      box-sizing: border-box;
+      flex: 0 0 50%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      &.overlay-top-area {
+        padding-top: 40px;
+      }
+    }
+  }
+}
