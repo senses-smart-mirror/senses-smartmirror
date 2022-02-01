@@ -50,59 +50,7 @@
     {
       "id": 2,
       "rowSettings": {},
-      "topComponents": [
-        {
-          "id": "d1077b94-349b-45c0-b846-669b52792886",
-          "name": "weather",
-          "icon": "fad fa-sun-cloud",
-          "settings": [
-            {
-              "name": "header",
-              "value": ""
-            },
-            {
-              "name": "defaultUrl",
-              "value": "http://api.openweathermap.org/data/2.5/weather"
-            },
-            {
-              "name": "cityId",
-              "value": "Amsterdam"
-            },
-            {
-              "name": "apiKey",
-              "value": "f557d3c6726237ed6d67ffe843922ecc"
-            },
-            {
-              "name": "units",
-              "value": "metric"
-            },
-            {
-              "name": "lang",
-              "value": "en"
-            },
-            {
-              "name": "showDescription",
-              "value": true
-            },
-            {
-              "name": "showLocation",
-              "value": false
-            },
-            {
-              "name": "showWindInformation",
-              "value": false
-            },
-            {
-              "name": "interval",
-              "value": "600000"
-            },
-            {
-              "name": "show",
-              "value": true
-            }
-          ]
-        }
-      ],
+      "topComponents": [],
       "bottomComponents": [
         {
           "id": "9dc40ea0-069e-4d86-8e21-31fdf92b5fa4",
