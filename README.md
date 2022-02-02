@@ -8,9 +8,9 @@ Senses - Smart Mirror is modern, clean & minimalistic designed software for your
 More information: [Senses - Website](https://senses-smartmirror.com).
 
 <p style="text-align: center">
-  <img width="360" alt="Senses - Smart Mirror" src="./github/images/impression-1.png">
+  <img width="360" alt="Senses - Smart Mirror" src="/.github/images/impression-1.png">
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img width="360" alt="Senses - Smart Mirror" src="./github/images/impression-2.png">
+  <img width="360" alt="Senses - Smart Mirror" src="/.github/images/impression-2.png">
 </p>
 ## Installation
 
