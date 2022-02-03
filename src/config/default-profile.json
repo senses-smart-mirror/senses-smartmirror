@@ -1,0 +1,102 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "rowSettings": {},
+      "topComponents": [
+        {
+          "id": "fadsf1-111efaf-afsadfdf-rererw",
+          "name": "clock",
+          "icon": "fad fa-clock",
+          "header": "",
+          "settings": [
+            {
+              "name": "header",
+              "value": ""
+            },
+            {
+              "name": "location",
+              "value": "Zaandam"
+            },
+            {
+              "name": "timezone",
+              "value": "Europe/Amsterdam"
+            },
+            {
+              "name": "showAMPM",
+              "value": false
+            },
+            {
+              "name": "showLocation",
+              "value": true
+            },
+            {
+              "name": "showDate",
+              "value": false
+            },
+            {
+              "name": "show",
+              "value": true
+            },
+            {
+              "name": "widget_design",
+              "value": "default"
+            }
+          ]
+        }
+      ],
+      "bottomComponents": []
+    },
+    {
+      "id": 2,
+      "rowSettings": {},
+      "topComponents": [],
+      "bottomComponents": [
+        {
+          "id": "9dc40ea0-069e-4d86-8e21-31fdf92b5fa4",
+          "name": "qr",
+          "icon": "fad fa-qrcode",
+          "settings": [
+            {
+              "name": "background_color"
+            },
+            {
+              "name": "header",
+              "value": "QR App Code"
+            },
+            {
+              "name": "show",
+              "value": true
+            },
+            {
+              "name": "show_icon_in_header",
+              "value": false
+            },
+            {
+              "name": "time_show",
+              "value": ""
+            },
+            {
+              "name": "widget_width",
+              "value": 300
+            },
+            {
+              "name": "widget_design",
+              "value": "default"
+            }
+          ],
+          "helper": true,
+          "speech": "qr, code, app code"
+        }
+      ]
+    },
+    {
+      "id": 1000,
+      "rowSettings": {
+        "class": "overlay"
+      },
+      "topComponents": [],
+      "bottomComponents": []
+    }
+  ]
+}
