@@ -1,11 +1,13 @@
 <p align="center">
   <a href="https://senses-smartmirror.com#gh-light-mode-only">
-    <img src=".github/images/senses-logo.png" width="260" />
+    <img src=".github/images/senses-logo.png" width="360" />
   </a>
   <a href="https://senses-smartmirror.com/#gh-dark-mode-only">
-    <img src=".github/images/senses-logo-dark.png" width="260" />
+    <img src=".github/images/senses-logo-dark.png" width="360" />
   </a>
 </p>
+
+<br /><br /><br />
 
 # Senses - Smart Mirror
 
