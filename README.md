@@ -1,5 +1,11 @@
-<p align="center"><a href="https://senses-mirror.io" target="_blank"><img width="360" alt="senses-logo-full" src="https://user-images.githubusercontent.com/3399093/134037048-2add52f7-05f8-4c8d-a25c-fa590d97b01c.png"></a></p>
-<br /><br />
+<p align="center">
+  <a href="https://senses-smartmirror.com#gh-light-mode-only">
+    <img src=".github/images/senses-logo.png" width="260" />
+  </a>
+  <a href="https://senses-smartmirror.com/#gh-dark-mode-only">
+    <img src=".github/images/senses-logo-dark.png" width="260" />
+  </a>
+</p>
 
 # Senses - Smart Mirror
 
