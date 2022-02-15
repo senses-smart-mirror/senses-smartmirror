@@ -6,7 +6,9 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 
 [1.0.0] - 2022-02-15
 
-# Fixes #8 - Fix for issue with installing
+Fixes
+
+#8 - Fix for issue with installing
 
 [1.0.0] - 2022-02-01
 <strong>First initial release.</strong>
