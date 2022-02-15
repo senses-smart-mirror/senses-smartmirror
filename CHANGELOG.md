@@ -4,10 +4,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog and this project adheres to Semantic Versioning.
 
+[1.0.0] - 2022-02-15
+
+# Fixes #8 - Fix for issue with installing
+
 [1.0.0] - 2022-02-01
 <strong>First initial release.</strong>
 
 Added
+
 - Senses - App
 - Senses - Cli
 - Animations
