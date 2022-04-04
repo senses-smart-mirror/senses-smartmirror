@@ -6,9 +6,11 @@ The format is based on Keep a Changelog and this project adheres to Semantic Ver
 
 <b>[1.0.2] - 2022-04-04</b>
 
-Update
+Fixes
 
 #12 - Update Electron to version 18.0.1
+#15 - Remove Sonus since it has broken Snowboy package
+#16 - Fix missing debug file
 
 <b>[1.0.1] - 2022-02-15</b>
 
