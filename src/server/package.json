@@ -64,7 +64,6 @@
 		"rss-parser": "^3.12.0",
 		"shelljs": "^0.8.4",
 		"socket.io": "^4.2.0",
-		"sonus": "^1.0.3",
 		"speedtest-net": "^2.2.0",
 		"systeminformation": "^5.9.4",
 		"uuid": "^8.3.2"
