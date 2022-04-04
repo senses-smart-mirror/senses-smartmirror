@@ -1,22 +1,22 @@
-import chalk from 'chalk';
-import fs from 'fs';
-import util from 'util';
-import path from 'path';
+import chalk from "chalk";
+import fs from "fs";
+import util from "util";
+import path from "path";
 
-let LOGFILE = path.join(__dirname, '../../../../logs/debug.log');
+let LOGFILE = path.join(__dirname, "../../../../logs/debug.log");
 
 if (!fs.existsSync(LOGFILE)) {
-  LOGFILE = path.join(__dirname, '../../../logs/debug.log');
+  LOGFILE = path.join(__dirname, "../../../logs/debug.log");
 }
 
 class Logger {
   constructor() {}
 
-  private static log_file = fs.createWriteStream(LOGFILE, {flags : 'w'});
+  private static log_file = fs.createWriteStream(LOGFILE, { flags: "w" });
 
   static getDateTime() {
-    const date:Date = new Date();
-    return `${this.pad(date.getHours())}:${this.pad(date.getMinutes())}:${this.pad(date.getSeconds())}`
+    const date: Date = new Date();
+    return `${this.pad(date.getHours())}:${this.pad(date.getMinutes())}:${this.pad(date.getSeconds())}`;
   }
 
   static intro(...args: any) {
@@ -28,7 +28,7 @@ class Logger {
 
     console.log(msg, ...args);
 
-    this.log_file.write(util.format(msg, ...args) + '\n');
+    this.log_file.write(util.format(msg, ...args) + "\n");
   }
 
   static warning(...args: any) {
@@ -36,7 +36,7 @@ class Logger {
 
     console.log(chalk.yellow(msg, ...args));
 
-    this.log_file.write(util.format(msg, ...args) + '\n');
+    this.log_file.write(util.format(msg, ...args) + "\n");
   }
 
   static error(...args: any) {
@@ -44,7 +44,7 @@ class Logger {
 
     console.log(chalk.red(msg, ...args));
 
-    this.log_file.write(util.format(msg, ...args) + '\n');
+    this.log_file.write(util.format(msg, ...args) + "\n");
   }
 
   private static pad(n: string | number) {
