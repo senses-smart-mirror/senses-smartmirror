@@ -9,8 +9,6 @@ src/config/saved-config.json
 src/config/*-profile.json
 !src/config/default-profile.json
 
-**/logs/*.log
-
 /tests/e2e/videos/
 /tests/e2e/screenshots/
 
