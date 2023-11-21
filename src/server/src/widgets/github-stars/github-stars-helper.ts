@@ -44,14 +44,14 @@ export class GithubStars extends WidgetHelper {
   */
   private async getGithubData() {
     let githubStarsData:any = [];
-    
+
     const repos = this.getSettingValue('repos');
 
     if ( ! repos || !repos.length ) {
       this.addEmitter("BROADCAST_GITHUB_STARS_DATA", {error: 'no_repos'} );
       return;
     }
-    
+
     const cacheItem = this.getFromCache();
     if (cacheItem) {
       this.addEmitter("BROADCAST_GITHUB_STARS_DATA", cacheItem.data );
@@ -61,7 +61,7 @@ export class GithubStars extends WidgetHelper {
     for await (const repo of repos) {
       const url = BASE_URL + `${repo.username}/${repo.repository}`;
       Logger.log('[Github Stars] - Api call:', url);
-      
+
       try {
         const result = await axios.get(url);
 
@@ -88,7 +88,7 @@ export class GithubStars extends WidgetHelper {
     this.addToCache(newCacheItem);
 
     this.addEmitter("BROADCAST_GITHUB_STARS_DATA", githubStarsData);
-    
+
   }
 
   /*

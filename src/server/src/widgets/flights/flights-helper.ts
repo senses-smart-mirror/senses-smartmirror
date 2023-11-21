@@ -1,8 +1,8 @@
 import Axios from "axios";
-import moment from "moment";
+const moment = require("moment");
 import { IWidget } from "src/lib/types";
-import AIRPORTS from './airports.json';
-import AIRLINES from './airlines.json';
+import * as AIRPORTS from './airports.json';
+import * as AIRLINES from './airlines.json';
 
 // base url for NS api
 const baseUrl = 'https://api.schiphol.nl/public-flights/';

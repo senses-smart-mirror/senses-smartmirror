@@ -1,4 +1,4 @@
-import Parser from "rss-parser";
+const Parser = require("rss-parser");
 import { IWidget } from "src/lib/types";
 
 const parser = new Parser();

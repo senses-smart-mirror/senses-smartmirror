@@ -1,5 +1,5 @@
-import si from 'systeminformation';
-import os from 'os';
+import * as si from 'systeminformation';
+import * as os from 'os';
 import { IWidget } from 'src/lib/types';
 import wifi from 'node-wifi';
 
@@ -61,7 +61,7 @@ class Stats extends WidgetHelper {
 	*/
 	async _getStats() {
 		Logger.log('[Stats] - Fetching data...');
-		
+
 		let data: any = {};
 
 		// uptime

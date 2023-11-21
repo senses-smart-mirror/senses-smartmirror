@@ -1,5 +1,5 @@
 import { IWidget } from "src/lib/types";
-import request from 'request';
+const request = require("request");
 
 export class CryptoGraph extends WidgetHelper {
   constructor(data: IWidget) {
@@ -109,7 +109,7 @@ export class CryptoGraph extends WidgetHelper {
    */
   private handleListener() {
     if ( ! this.getSettingValue('show') ) return;
-    
+
     this.getCryptoData();
     clearInterval(this.interval);
     this.interval = setInterval(

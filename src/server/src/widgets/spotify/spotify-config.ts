@@ -17,13 +17,14 @@ const SpotifyConfig: IWidgetConfig = {
     },
     {
       name: "none",
-      displayOnly: "true",
+      displayOnly: true,
       label: "",
       order: 2,
       type: "button",
       value: "Connect Spotify",
       defaultValue: "Connect Spotify",
       link: "spotify/login",
+      description: ""
     },
     {
       name: "clientId",

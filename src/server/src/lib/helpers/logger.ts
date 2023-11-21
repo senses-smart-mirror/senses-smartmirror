@@ -1,7 +1,7 @@
 import chalk from "chalk";
-import fs from "fs";
-import util from "util";
-import path from "path";
+import * as fs from "fs";
+import * as util from "util";
+import * as path from "path";
 
 let LOGFILE = path.join(__dirname, "../../../../logs/debug.log");
 

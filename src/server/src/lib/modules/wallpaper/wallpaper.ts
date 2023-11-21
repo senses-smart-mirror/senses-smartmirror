@@ -1,4 +1,4 @@
-import request from 'request';
+const request = require("request");
 import { ISetting } from 'src/lib/types/Setting';
 
 import SmartMirrorAPI from '../../classes/Api';

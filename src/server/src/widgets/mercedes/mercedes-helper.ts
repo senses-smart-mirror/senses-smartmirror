@@ -1,9 +1,9 @@
 import axios from 'axios';
-import request from 'request';
-import querystring from 'querystring';
-import ip from 'ip';
-import path from "path";
-import qs from "qs";
+const request = require("request");
+import * as querystring from 'querystring';
+import * as ip from 'ip';
+import * as path from "path";
+import * as qs from "qs";
 import { result } from 'lodash';
 
 const BASE_URL: string = 'https://api.mercedes-benz.com/vehicledata/v2';
@@ -108,6 +108,7 @@ class MercedesMe extends WidgetHelper {
         grant_type: 'authorization_code'
       },
       headers: {
+        // @ts-ignore
         'Authorization': 'Basic ' + (new Buffer.from(this.clientId + ':' + this.clientSecret).toString('base64'))
       },
       json: true
@@ -254,6 +255,7 @@ class MercedesMe extends WidgetHelper {
     })
     const options = {
       headers: {
+        // @ts-ignore
         'Authorization': 'Basic ' + (new Buffer.from(this.clientId + ':' + this.clientSecret).toString('base64')),
         'Content-Type':'application/x-www-form-urlencoded',
       }

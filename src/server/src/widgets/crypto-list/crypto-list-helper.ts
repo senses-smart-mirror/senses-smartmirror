@@ -1,5 +1,5 @@
 import { IWidget } from "src/lib/types";
-import request from 'request';
+const request = require("request");
 
 export class CryptoList extends WidgetHelper {
   constructor(data: IWidget) {

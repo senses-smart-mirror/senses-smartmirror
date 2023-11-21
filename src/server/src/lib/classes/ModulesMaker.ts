@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 
 import { IModule } from "../types/Module";
 
@@ -16,6 +16,7 @@ class ModulesMaker {
   static initiateModules() {
     const modules: string[] = MODULES;
 
+    // @ts-ignore
     Logger.log('[Modules] - Loading all installed modules:')
 
     modules.forEach((module: string) => {
@@ -26,6 +27,7 @@ class ModulesMaker {
 
       mod = this.load(mod);
 
+      // @ts-ignore
       Logger.log(`[Modules] ---> Module: [${mod.name}] initiated.`)
 
       this.modules.push(mod);
@@ -49,6 +51,7 @@ class ModulesMaker {
     if (mod && mod[0]) {
       mod = mod[0];
 
+      // @ts-ignore
       mod.settings = this.mergeSettings(mod.settings, moduleData.settings);
 
       if ( mod.class && typeof mod.class.saveSettings === 'function') {
@@ -66,6 +69,7 @@ class ModulesMaker {
   }
 
   static getFormattedSettings(module: IModule): IBasicSetting[] {
+    // @ts-ignore
     return this.formatSettings(module.settings);
   }
 
@@ -78,6 +82,7 @@ class ModulesMaker {
       if (!s.displayOnly) {
         retVal.push({
           name: s.name,
+          // @ts-ignore
           value: s.value
         });
       }
@@ -114,10 +119,12 @@ class ModulesMaker {
         if (filter.length) {
           _mod = filter[0];
         } else {
+          // @ts-ignore
           Logger.error(`[Modules] - Module: ${module.name} not found.`)
           return;
         }
 
+        // @ts-ignore
         this.startModule(_mod, module.settings);
       }
     });
@@ -134,6 +141,7 @@ class ModulesMaker {
       try {
         moduleClass.init();
       } catch(e) {
+        // @ts-ignore
         Logger.error(`[Modules] ---> Module: [${module.name}] cannot initiated.`, e);
       }
 
@@ -144,9 +152,11 @@ class ModulesMaker {
       try {
         moduleClass.start();
       } catch(e) {
+        // @ts-ignore
         Logger.error(`[Modules] ---> Module: [${module.name}] cannot be started properly.`, e);
       }
 
+      // @ts-ignore
       Logger.log(`[Modules] ---> Module: [${module.name}] started.`);
 
       // save module
@@ -155,6 +165,7 @@ class ModulesMaker {
       module.class = moduleClass;
       this.activeModules.push(module);
     } else {
+      // @ts-ignore
       Logger.error('[Modules] - Module: doesn\'t have a "init" or "start" function.', module.name);
     }
   }
@@ -217,6 +228,7 @@ class ModulesMaker {
           if (!module.enabled) {
             if (typeof _module.class.stop === 'function') {
               _module.class.stop();
+              // @ts-ignore
               Logger.log(`[Modules] - Module: [${moduleName}] stopped`);
             }
           }
@@ -226,9 +238,12 @@ class ModulesMaker {
               _module.class = new module.fn();
               _module.class.init();
               _module.class.start();
+              // @ts-ignore
               Logger.log(`[Modules] - Module: [${moduleName}] started`);
             } catch(e) {
+              // @ts-ignore
               Logger.error('[Modules] - cannot start:', moduleName);
+              // @ts-ignore
               Logger.error(e);
             }
           }
@@ -237,6 +252,7 @@ class ModulesMaker {
 
       return module;
     } else {
+      // @ts-ignore
       Logger.error('[Modules] - Module not found: ', moduleName);
       return { "error": 'module_not_found' }
     }
@@ -253,6 +269,7 @@ class ModulesMaker {
       if ( activeMod ) {
         return {
           ...mod,
+          // @ts-ignore
           settings: this.mergeSettings(activeMod.settings, activeMod.class.settings)
         }
       } else {

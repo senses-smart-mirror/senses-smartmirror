@@ -1,9 +1,9 @@
 import { google } from 'googleapis';
-import path from 'path';
-import ip from 'ip';
+import * as path from 'path';
+import * as ip from 'ip';
 import { IWidget } from "src/lib/types";
-import request from 'request';
-import querystring from 'querystring';
+const request = require("request");
+import * as querystring from 'querystring';
 import { NextFunction } from 'express';
 
 const generateRandomString = (num: number) => Math.random().toString(num).substring(2, 15) + Math.random().toString(num).substring(2, 15);
@@ -196,6 +196,7 @@ export class Nest extends WidgetHelper {
     var authOptions = {
       url: 'https://www.googleapis.com/oauth2/v4/token',
       headers: {
+        // @ts-ignore
         'Authorization': 'Basic ' + (new Buffer.from(this.clientId + ':' + this.clientSecret).toString('base64'))
       },
       form: {

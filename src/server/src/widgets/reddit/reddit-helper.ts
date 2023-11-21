@@ -1,4 +1,4 @@
-import Parser from "rss-parser";
+const Parser = require("rss-parser");
 import { IWidget } from "src/lib/types";
 
 const parser = new Parser();
@@ -41,7 +41,7 @@ export class Reddit extends WidgetHelper {
    */
   private handleListener() {
     if ( ! this.getSettingValue('show') ) return;
-    
+
     this._feedHandler();
     clearInterval(this.interval);
     this.interval = setInterval(

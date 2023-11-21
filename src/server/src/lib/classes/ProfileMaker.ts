@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import * as fs from "fs";
+import * as path from "path";
 import * as _ from "lodash";
 
 import { IWidgetData } from "../types/WidgetData";
@@ -40,15 +40,18 @@ export default class ProfileMaker {
   * Load profiles from configuration file
   */
   static loadProfiles(config: any): void {
+    // @ts-ignore
     Logger.log('[Profiles] - Loading profiles...');
 
     this.profiles = [...config.profiles];
 
     if ( ! this.profiles ) {
+      // @ts-ignore
       Logger.error('[Profiles] - error: no profiles found.');
       process.exit();
     }
 
+    // @ts-ignore
     Logger.log(`[Profiles] - Found ${this.profiles.length} profile(s)`);
 
     // set active profile
@@ -56,8 +59,10 @@ export default class ProfileMaker {
 
     if (profile && profile[0]) {
       this.activeProfile = profile[0];
+      // @ts-ignore
       Logger.log('[Profiles] - Active profile:', this.activeProfile.label);
     } else {
+      // @ts-ignore
       Logger.error('[Profiles] - No profile found. Active profile not set, something is wrong with the configuration file.');
     }
 
@@ -82,9 +87,11 @@ export default class ProfileMaker {
     let profileContents: IProfileConfig;
 
     if (fs.existsSync(path.join(CONFIG_PATH, fileName))) {
+      // @ts-ignore
       Logger.log(`[Profiles] - Loading ${fileName}`);
 
       profileContents = JSON.parse(
+        // @ts-ignore
         fs.readFileSync(path.join(CONFIG_PATH, fileName)),
         "utf-8"
       );
@@ -92,6 +99,7 @@ export default class ProfileMaker {
       return profileContents.data;
 
     } else {
+      // @ts-ignore
       Logger.error('[Profiles] - Profile configuration file not found for: ', fileName);
       return [];
     }
@@ -200,9 +208,11 @@ export default class ProfileMaker {
   * save profile
   */
   static saveProfile(profile: IProfile) {
+    // @ts-ignore
     Logger.log('[Profiles] - Saving profile:', profile.name);
 
     if ( profile.name === 'default' ) {
+      // @ts-ignore
       Logger.log('[Profiles] - default profile is active, not saved.')
       return Promise.resolve();
     }
@@ -214,10 +224,12 @@ export default class ProfileMaker {
         path.join(CONFIG_PATH, `${profile.name}-profile.json`),
         contents,
         (err: any) => {
+          // @ts-ignore
           Logger.log("[Profiles] - Saved profile configuration");
           resolve(true);
 
           if (err) {
+            // @ts-ignore
             Logger.error('[Profiles] - error: failed to save profile configuration file.')
             reject();
           }
@@ -248,6 +260,7 @@ export default class ProfileMaker {
     });
 
     if (!result) {
+      // @ts-ignore
       Logger.error('[Profiles] - Cannot update widget configuration in profile file: ', widgetData.name, profile.name)
       return;
     } else {
@@ -259,7 +272,7 @@ export default class ProfileMaker {
   /*
   *
   */
-  static removeWidgetFromConfig(needle: object): IWidgetData | false {
+  static removeWidgetFromConfig(needle: object): IWidgetData | boolean {
     const profile = this.getActiveProfile();
 
     const removedWidget = this.removeWidgetFromConfigArray(profile, needle);
@@ -327,11 +340,13 @@ export default class ProfileMaker {
   * create new profile
   */
   static async createNewProfile(profileName: string): Promise<IProfile | false> {
+    // @ts-ignore
     Logger.log('[Profiles] - Creating new Profile:', profileName);
 
     const alreadyExist = this.profiles.filter(item => item.name === profileName.toLowerCase().replace(' ', '-'));
 
     if (alreadyExist && alreadyExist[0]) {
+      // @ts-ignore
       Logger.error('[Profiles] - Profile with this name already exists:', profileName);
       return false;
     }
@@ -381,8 +396,10 @@ export default class ProfileMaker {
 
     try {
       fs.unlinkSync(filePath)
+      // @ts-ignore
       Logger.log('[Profiles] - Profile configuration file removed:', fileName);
     } catch(err) {
+      // @ts-ignore
       Logger.error('[Profiles] - Profile configuration file not removed', err);
     }
   }
@@ -398,10 +415,12 @@ export default class ProfileMaker {
         path.join(CONFIG_PATH, fileName),
         stringifiedContent,
         (err: any) => {
+          // @ts-ignore
           Logger.log("[Profiles] - Saved new profile json file:", fileName);
           resolve(contents);
 
           if (err) {
+            // @ts-ignore
             Logger.error('[Profiles] - Error saving profile json file:', fileName);
             reject();
           }

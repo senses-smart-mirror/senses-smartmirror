@@ -1,4 +1,4 @@
-import request from 'request';
+const request = require("request");
 import { IWidget } from 'src/lib/types';
 
 class SpeedCamaras extends WidgetHelper {
