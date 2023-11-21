@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 
 import { IListener } from '../listeners';
 import { Socket } from 'socket.io';
@@ -6,7 +6,7 @@ import { IWidgetData } from '../types';
 import { ISpeechConfig } from '../types/Speech';
 
 class API {
-  private static app: express.Application;
+  private static app: any;
   private static socket: any;
   private static listeners: IListener = {};
   private static socketConnections: Socket[] = [];
@@ -55,7 +55,7 @@ class API {
    * @param {string} version - current version
    * @returns void
    */
-  static initiate(app: express.Application, io: any, version: string): void {
+  static initiate(app: Express.Application, io: any, version: string): void {
     this.app = app;
     this.socket = io;
     this.version = version;
@@ -92,12 +92,15 @@ class API {
   static callSpeechListener(speechResult: string): void {
     const result = this.findWidgetSpeechListeners(speechResult.trim());
 
+    // @ts-ignore
     Logger.log('[Speech] - Performing Listeners.');
 
     if (result && typeof result.function === 'function') {
       result.function(result.speechValue);
+      // @ts-ignore
       Logger.log(`[Speech] - called [${result.functionName}] - with: ${result.text}`)
     } else {
+      // @ts-ignore
       Logger.log(`[Speech] - no callback found.`)
       this.emit("BROADCAST_SPEECH_NOFUNCTION");
     }

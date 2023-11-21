@@ -1,14 +1,15 @@
-import express, { Application } from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import bodyParser from 'body-parser';
-import methodOverride from 'method-override';
-import cookieParser from 'cookie-parser';
-import ip from 'ip';
-import path from 'path';
-import fileUpload from 'express-fileupload';
-import socketIo from 'socket.io';
-import gradient from 'gradient-string';
+import { Application } from 'express';
+const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
+import * as bodyParser from 'body-parser';
+const methodOverride = require('method-override');
+const cookieParser = require('cookie-parser');
+import * as ip from 'ip';
+import * as path from 'path';
+const fileUpload = require('express-fileupload');
+import * as socketIo from 'socket.io';
+const gradient = require('gradient-string');
 import figlet from 'figlet';
 
 

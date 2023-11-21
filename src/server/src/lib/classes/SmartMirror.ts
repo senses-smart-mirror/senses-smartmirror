@@ -1,13 +1,15 @@
-import shelljs from "shelljs";
-import express from "express";
-import fs from "fs";
-import path from "path";
-import socketIo, { Socket } from "socket.io";
+import * as shelljs from "shelljs";
+import * as express from "express";
+import * as fs from "fs";
+import * as path from "path";
+import { Socket } from "socket.io";
+const socketIo = require("socket.io");
 import * as _ from "lodash";
-import request from "request";
-import wifi from 'node-wifi';
+const request = require("request");
+const wifi = require('node-wifi');
 import network from 'network';
-import moment from 'moment-timezone';
+const moment = require("moment");
+import 'moment-timezone';
 
 // imports
 import Logger from "../helpers/logger";
@@ -618,6 +620,7 @@ class SmartMirror {
   * @param {socketIo.Socket} socket - socket data
   * @returns void
   */
+  // @ts-ignore
   addListenersToNewSocket(socket: socketIo.Socket): void {
     const listeners = SmartMirrorAPI.getListeners();
 
@@ -638,6 +641,7 @@ class SmartMirror {
       fs.existsSync(path.join(global.CONFIG_PATH, "backup-config.json"))
     ) {
       this.config = JSON.parse(
+        // @ts-ignore
         fs.readFileSync(path.join(global.CONFIG_PATH, "backup-config.json"))
       );
       this.saveConfig().then(() => {
@@ -672,6 +676,7 @@ class SmartMirror {
       let valid;
       try {
         this.config = JSON.parse(
+          // @ts-ignore
           fs.readFileSync(
             path.join(global.CONFIG_PATH, "saved-config.json")
           ),
@@ -788,6 +793,7 @@ class SmartMirror {
   *
   * @returns socketIo.Socket
   */
+ // @ts-ignore
   getSocketConnections(): socketIo.Socket[] {
     return this.socketConnections;
   }
@@ -799,6 +805,7 @@ class SmartMirror {
   * @param {socketIo.Socket} socket - socket instance
   * @returns void
   */
+ // @ts-ignore
   storeSocketConnection(socket: socketIo.Socket) {
     this.socketConnections.push(socket);
   }
@@ -1079,6 +1086,7 @@ class SmartMirror {
   toggleModule(moduleName: string): IModule | { error: string } {
     const result = ModulesMaker.toggleModule(moduleName);
 
+    // @ts-ignore
     if (!result.error) {
       this.saveModuleConfig(result as IModule);
     }
@@ -1316,7 +1324,7 @@ class SmartMirror {
    * @returns IWidgetData | boolean
    */
   private removeWidgetFromConfig(needle: any): IWidgetData | boolean {
-    const widget: IWidgetData | false = ProfileMaker.removeWidgetFromConfig(needle);
+    const widget: IWidgetData | boolean = ProfileMaker.removeWidgetFromConfig(needle);
     return widget! ? widget : false;
   }
 
@@ -1381,6 +1389,7 @@ class SmartMirror {
     const sockets: Socket[] = this.getSocketConnections();
 
     if (sockets.length) {
+      // @ts-ignore
       sockets.forEach((socket: socketIo.Socket) => {
         socket.disconnect();
       });
@@ -1412,6 +1421,7 @@ class SmartMirror {
    * @returns void
    */
   removeSocketConnection(socketId: string): void {
+    // @ts-ignore
     this.socketConnections = this.socketConnections.filter((socket: SocketIO.Socket) => socket.id !== socketId);
   }
 

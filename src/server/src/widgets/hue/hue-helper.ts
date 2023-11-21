@@ -152,7 +152,7 @@ class Hue extends WidgetHelper {
 
 			hueData.groups = result.data || [];
 		} catch (e) {
-			Logger.error('[Hue]', e, url);
+			Logger.error('[Hue]', e, groupsUrl);
 		}
 
 		try {
@@ -160,7 +160,7 @@ class Hue extends WidgetHelper {
 			const result = await Axios.get(lightsUrl);
 			hueData.lights = result.data || [];
 		} catch (e) {
-			Logger.error('[Hue]', e, url);
+			Logger.error('[Hue]', e, lightsUrl);
 		}
 
 		this.addEmitter('BROADCAST_HUE_INFO', hueData);

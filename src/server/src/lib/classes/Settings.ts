@@ -41,11 +41,12 @@ export default class Settings {
    */
   private static formatSettings(settings: ISetting[]): IBasicSetting[] {
     const retVal: IBasicSetting[] = [];
-    
+
     settings.forEach((s) => {
       if (!s.displayOnly) {
         retVal.push({
           name: s.name,
+          // @ts-ignore
           value: s.value,
         });
       }

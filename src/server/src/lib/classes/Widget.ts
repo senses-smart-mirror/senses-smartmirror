@@ -1,6 +1,6 @@
 import * as _ from 'lodash';
-import path from 'path';
-import fs from 'fs';
+import * as path from 'path';
+import * as fs from 'fs';
 import { v4 as uuid } from 'uuid';
 
 import { IWidget } from "../types/Widget";
@@ -30,6 +30,7 @@ export default class Widget implements IWidget {
     this.name = data.name;
     this.icon = data.icon;
     this.helper = data.helper || false;
+    // @ts-ignore
     this.settings = data.settings;
     this.custom = data.custom;
     this.speech = data.speech;
@@ -53,6 +54,7 @@ export default class Widget implements IWidget {
  * update settings
  */
   saveSettings(newSettings: (ISetting | IBasicSetting)[]): (ISetting | IBasicSetting)[] {
+    // @ts-ignore
     this.settings = this.mergeSettings(newSettings);
     return this.settings;
   }
@@ -86,6 +88,7 @@ export default class Widget implements IWidget {
   /*
   * return simplified object of the widget
   */
+  // @ts-ignore
   getSimplified(): IWidgetData {
     return {
       id: this.getId(),
@@ -93,7 +96,7 @@ export default class Widget implements IWidget {
       icon: this.icon,
       settings: this.formatSettings(this.settings),
       helper: this.hasHelper(),
-      speech: this.speech
+      speech: this.speech as string
     };
   }
 
@@ -106,6 +109,7 @@ export default class Widget implements IWidget {
       if (!s.displayOnly) {
         retVal.push({
           name: s.name,
+          // @ts-ignore
           value: s.value
         });
       }
@@ -175,7 +179,7 @@ export default class Widget implements IWidget {
   }
 
   /*
-   * initiate widget helper 
+   * initiate widget helper
    */
   initiateWigetHelper() {
     if (!this.hasHelper()) return;

@@ -1,5 +1,5 @@
 import { IWidget } from "src/lib/types";
-import request from 'request';
+const request = require("request");
 
 const BASE_URL =  "https://finnhub.io/api/v1/quote";
 

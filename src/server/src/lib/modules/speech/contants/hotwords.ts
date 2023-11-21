@@ -1,5 +1,5 @@
 
-import path from 'path';
+import * as path from 'path';
 import { ISonusHotword } from '../types/hotword';
 
 const HOTWORDS:ISonusHotword[] = [

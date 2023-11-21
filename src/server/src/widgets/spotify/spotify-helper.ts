@@ -1,7 +1,7 @@
-import request from 'request';
-import querystring from 'querystring';
-import ip from 'ip';
-import path from "path";
+const request = require("request");
+import * as querystring from 'querystring';
+import * as ip from 'ip';
+import * as path from "path";
 import { IWidget } from 'src/lib/types';
 
 const generateRandomString = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -74,6 +74,7 @@ class Spotify extends WidgetHelper {
 				grant_type: 'authorization_code'
 			},
 			headers: {
+        // @ts-ignore
 				'Authorization': 'Basic ' + (new Buffer.from(this.clientId + ':' + this.clientSecret).toString('base64'))
 			},
 			 json: true
@@ -166,6 +167,7 @@ class Spotify extends WidgetHelper {
 		const authOptions = {
 			url: 'https://accounts.spotify.com/api/token',
 			headers: {
+        // @ts-ignore
 				'Authorization': 'Basic ' + (new Buffer.from(this.clientId + ':' + this.clientSecret).toString('base64'))
 			},
 			form: {
@@ -196,6 +198,7 @@ class Spotify extends WidgetHelper {
 	_broadCastSpotifyInfo() {
 		Promise.all([this._getSpotifyPlayerData(), this._getSpotifyDeviceData()])
 			.then((res) => {
+        // @ts-ignore
 				this.addEmitter('BROADCAST_SPOTIFY_INFO', {player: res[0], ...res[1]});
 			})
 			.catch(err => {

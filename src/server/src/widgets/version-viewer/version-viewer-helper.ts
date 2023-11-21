@@ -1,4 +1,4 @@
-import request from 'request';
+const request = require("request");
 import { IWidgetData } from "src/lib/types";
 
 interface IVersion {

@@ -1,9 +1,9 @@
-import AdmZip from "adm-zip";
-import rimraf from "rimraf";
-import path from 'path';
-import fs from 'fs';
-import ip from 'ip';
-import _ from "lodash";
+const AdmZip = require("adm-zip");
+import * as  rimraf from "rimraf";
+import * as  path from 'path';
+import * as  fs from 'fs';
+import * as  ip from 'ip';
+import * as  _ from "lodash";
 
 import Logger from "../helpers/logger";
 import Widget from "./Widget";
@@ -48,7 +48,7 @@ class WidgetsMaker {
   /*
   * get custom widgets simplified
   */
-  // TODO: this currently doesn't work. We should seperate the custom widget model out and save that model. 
+  // TODO: this currently doesn't work. We should seperate the custom widget model out and save that model.
   // It is now saving this simplified version in the custom widgets which should be the case. IN customwidgets array we need the full widget + model
   static getCustomWidgetsSimplified(): IWidgetData[] {
     return this.customWidgets;
@@ -176,6 +176,7 @@ class WidgetsMaker {
   *
   */
   static applyDefaultSettings(config: IWidgetData): IWidgetData {
+    // @ts-ignore
     config.settings = config.settings.concat(DEFAULT_SETTINGS);
     return config;
   }
@@ -271,6 +272,7 @@ class WidgetsMaker {
     if (index >= 0) {
       this.customWidgets.splice(index, 1);
     }
+    // @ts-ignore
     this.customWidgets.push(widget);
 
     Logger.log('[Widgets] - Stored custom widget.', widget.name);
@@ -322,6 +324,7 @@ class WidgetsMaker {
   *
   */
   static removeWidgetModel(widgetName: string) {
+    // @ts-ignore
     this.setWidgetModels(this.widgetModels.filter((widgetModel: IWidgetConfig) => {
       return widgetModel.name !== widgetName;
     }));

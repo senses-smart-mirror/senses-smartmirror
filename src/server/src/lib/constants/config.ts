@@ -1,5 +1,5 @@
 import { CorsOptions } from 'cors';
-import ip from 'ip';
+import * as ip from 'ip';
 
 // default port
 export const PORT = '7011';

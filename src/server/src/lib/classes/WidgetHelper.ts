@@ -1,4 +1,4 @@
-import _ from "lodash";
+import * as  _ from "lodash";
 
 import { Response } from 'express';
 
@@ -8,7 +8,6 @@ import { IWidget } from "../types/Widget";
 import { IBasicSetting, ISetting } from "../types/Setting";
 import { IWidgetHelper } from "../types/WidgetHelper";
 import { ISpeechConfig } from "../types/Speech";
-import { IWidgetData } from "../types";
 
 /*
  * Component class
@@ -57,9 +56,11 @@ abstract class WidgetHelper implements IWidgetHelper {
    * reload widget data & settings
    */
   reload(widgetData: IWidget): void {
+    // @ts-ignore
     this.settings = widgetData.getSettings();
 
     if (this.afterReload) {
+      // @ts-ignore
       this.afterReload(widgetData.getSettings());
     }
 
@@ -105,6 +106,7 @@ abstract class WidgetHelper implements IWidgetHelper {
    * getSetting
    */
   getSetting(name: string): ISetting | undefined {
+    // @ts-ignore
     return _.find(this.settings, { name: name });
   }
 
@@ -123,6 +125,7 @@ abstract class WidgetHelper implements IWidgetHelper {
     // TODO: refactor this
     // Some setting are saved as object {value: string, label:string}
     // For those cases we use: value.value
+    // @ts-ignore
     if (r) return r.value && r.value.value ? r.value.value : r.value;
   }
 
@@ -131,6 +134,7 @@ abstract class WidgetHelper implements IWidgetHelper {
   */
   save() {
     Logger.log('[Widget helper] - saving widget method called.')
+    // @ts-ignore
     SmartMirrorAPI.saveWidget(this);
   }
 
@@ -286,12 +290,15 @@ abstract class WidgetHelper implements IWidgetHelper {
 
     if (item) {
       _.forEach(this.settings, (s) => {
+        // @ts-ignore
         if (s.name === setting.name) {
+          // @ts-ignore
           s.value = setting.value;
         }
       });
     } else {
       Logger.log('[Widget Helper] - Adding setting on widget:', this.name);
+      // @ts-ignore
       this.settings.push(setting);
     }
   }

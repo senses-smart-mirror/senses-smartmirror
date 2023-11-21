@@ -1,6 +1,6 @@
 import { google } from 'googleapis';
-import path from 'path';
-import ip from 'ip';
+import * as path from 'path';
+import * as ip from 'ip';
 import { IWidget } from "src/lib/types";
 
 /*
@@ -92,6 +92,7 @@ export class Calendar extends WidgetHelper {
     }
 
     // udpate authclient credentials
+    // @ts-ignore
     this.authClient.setCredentials({ access_token: ACCESS_TOKEN });
 
     // valid access token, no login required
@@ -130,9 +131,11 @@ export class Calendar extends WidgetHelper {
       return this.sendResponse(res, 200, "[Calendar] - Token known already. The Calendar widget is setup successfully. You don't have to authenticate again.");
     }
 
+    // @ts-ignore
     const state = generateRandomString(16) + `url${ip.address()}url`;
     res.cookie(this.stateKey, state);
 
+    // @ts-ignore
     let url = this.authClient.generateAuthUrl({
       access_type: "offline",
       scope: ["https://www.googleapis.com/auth/calendar.readonly"],
@@ -151,11 +154,13 @@ export class Calendar extends WidgetHelper {
 
     res.clearCookie(this.stateKey);
 
+    // @ts-ignore
     this.authClient.getToken(code, (err, tokens) => {
       if (!tokens) {
         return res.redirect("/google/close");
       }
 
+      // @ts-ignore
       this.authClient.setCredentials(tokens);
 
       this.updateSetting({ name: "accessToken", value: tokens.access_token });
@@ -178,8 +183,10 @@ export class Calendar extends WidgetHelper {
 
     if ( ! this.getSettingValue('show') ) return;
 
+    // @ts-ignore
     if ( ! this.authClient.credentials.access_token ) {
       const ACCESS_TOKEN = this.getSettingValue("accessToken");
+      // @ts-ignore
       this.authClient.setCredentials({access_token: ACCESS_TOKEN});
     }
 
@@ -210,9 +217,11 @@ export class Calendar extends WidgetHelper {
   }
 
   renewToken() {
+    // @ts-ignore
     this.authClient.setCredentials({ refresh_token: this._getRefreshToken() });
 
     return new Promise((resolve, reject) => {
+      // @ts-ignore
       this.authClient.refreshAccessToken((err, tokens) => {
         if (!err && tokens) {
           this.updateSetting({
@@ -225,6 +234,7 @@ export class Calendar extends WidgetHelper {
           });
           this.save();
 
+          // @ts-ignore
           this.authClient.setCredentials(tokens);
 
           this.tokenRenewed = true;
@@ -252,6 +262,7 @@ export class Calendar extends WidgetHelper {
   */
   getCalendarItems() {
     const auth = this.authClient;
+    // @ts-ignore
     const calendar = google.calendar({ version: "v3", auth });
 
     return new Promise((resolve, reject) => {

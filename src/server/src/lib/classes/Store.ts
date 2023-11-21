@@ -1,6 +1,6 @@
-import _ from 'lodash';
-import fs from 'fs';
-import path from 'path';
+import * as _ from 'lodash';
+import * as fs from 'fs';
+import * as path from 'path';
 
 import { IWidgetData } from "../types/WidgetData";
 import Logger from "../helpers/logger";
@@ -76,6 +76,7 @@ export default class Store {
     try {
       if (fs.existsSync(PATH)) {
         Logger.log("[Store] - Opening Widget Storage..");
+        // @ts-ignore
         this.widgets = JSON.parse(fs.readFileSync(PATH), "utf-8");
       } else {
         this.widgets = [];

@@ -1,4 +1,4 @@
-import request from "request";
+const request = require("request");
 import atob from "atob";
 
 class TravelTime extends WidgetHelper {

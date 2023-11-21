@@ -1,4 +1,5 @@
-import express, { Request, Response } from "express";
+import { Request, Response } from "express";
+const express = require('express')
 import * as _ from 'lodash';
 
 export const itemsRouter = express.Router();
@@ -83,6 +84,7 @@ itemsRouter.post("/api/usebackup", (req, res, next) => {
     SmartMirror.io.emit("BROADCAST_OPTION_SUCCESS");
     res.status(200).send('success');
   } catch (e) {
+    // @ts-ignore
     Logger.log('Backup route:', e)
     res.status(404).send('Error updating monitor.');
   }
@@ -96,16 +98,20 @@ itemsRouter.post("/api/usebackup", (req, res, next) => {
 
 itemsRouter.post("/api/package", async (req: Request, res: Response) => {
   try {
+    // @ts-ignore
     if (!req.files) {
       res.status(404).send({ status: false, message: "No file uploaded" });
     } else {
+      // @ts-ignore
       _.forEach(_.keysIn(req.files), (key) => {
+        // @ts-ignore
         SmartMirror.saveCustomWidget(req.files[key]);
       });
     }
 
     res.status(200).send('[Smart Mirror] - Server respone: Import success.');
   } catch (e) {
+    // @ts-ignore
     Logger.log('Package route:', e)
     res.status(404).send('Error importing package.');
   }
