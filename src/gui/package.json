@@ -31,14 +31,14 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
+    "@vue/cli-service": "^3.3.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^8.0.0",
     "sass-loader": "^10.0.0",
     "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.42.0"
+    "webpack": "^4.47.0"
   },
   "eslintConfig": {
     "root": true,
