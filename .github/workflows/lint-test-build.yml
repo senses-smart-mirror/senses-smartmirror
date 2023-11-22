@@ -16,7 +16,7 @@ jobs:
       - name: Lint, Test & Build GUI
         working-directory: ./src/gui
         run: |
-          npm install --package-lock-only
+          npm install --force --package-lock-only
           npm ci --quiet --no-progress
           npm run lint
           npm run build
