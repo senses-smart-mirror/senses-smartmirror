@@ -1,7 +1,7 @@
 {
 	"name": "senses-smart-mirror",
 	"description": "Senses - Smart Mirror, modern, clean & minimalistic designed software for your Smart Mirror. Senses is open source and rich of widgets ready to provide you an amazing view of day-to-day data.",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"author": "Nick Thesing",
 	"publishConfig": {
 		"access": "public",
