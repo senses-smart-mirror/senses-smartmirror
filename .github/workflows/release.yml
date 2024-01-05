@@ -17,6 +17,8 @@ jobs:
         working-directory: ./src
         run: |
           mkdir target
+          mkdir target/logs
+          touch target/logs/debug.log
 
       - name: build GUI
         working-directory: ./src/gui
