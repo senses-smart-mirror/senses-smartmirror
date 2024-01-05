@@ -18,7 +18,7 @@ jobs:
         run: |
           npm ci --force --quiet --no-progress
           npm run lint
-          NODE_OPTIONS=--openssl-legacy-provider npm run build
+          npm run build
 
       - name: Lint, Test & Build Server
         working-directory: ./src/server
@@ -31,4 +31,4 @@ jobs:
         run: |
           npm ci --quiet --force --no-progress
           npm run lint
-          NODE_OPTIONS=--openssl-legacy-provider npm run build
+          npm run build
