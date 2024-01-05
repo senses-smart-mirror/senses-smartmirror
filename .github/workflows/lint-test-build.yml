@@ -16,7 +16,7 @@ jobs:
       - name: Lint, Test & Build GUI
         working-directory: ./src/gui
         run: |
-          npm ci --quiet --no-progress
+          npm ci --force --quiet --no-progress
           npm run lint
           NODE_OPTIONS=--openssl-legacy-provider npm run build
 
@@ -29,6 +29,6 @@ jobs:
       - name: Lint, Test & Build Web app
         working-directory: ./src/app
         run: |
-          npm ci --quiet --no-progress
+          npm ci --quiet --force --no-progress
           npm run lint
           NODE_OPTIONS=--openssl-legacy-provider npm run build
