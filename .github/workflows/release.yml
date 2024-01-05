@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '18.16.0'
+          node-version: '18.19.0'
 
       - name: Create folder
         working-directory: ./src
@@ -22,7 +22,7 @@ jobs:
         working-directory: ./src/gui
         run: |
           npm ci --quiet --no-progress
-          NODE_OPTIONS=--openssl-legacy-provider npm run build
+          npm run build
           mkdir ../target/gui
           cp -r dist/* ../target/gui
           cd ../target/gui
@@ -40,7 +40,7 @@ jobs:
         working-directory: ./src/app
         run: |
           npm ci --quiet --no-progress
-          NODE_OPTIONS=--openssl-legacy-provider npm run build
+          npm run build
           mkdir ../target/server/public
           cp -r dist/* ../target/server/public
 
