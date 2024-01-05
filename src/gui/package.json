@@ -23,7 +23,7 @@
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.1",
     "vue-cryptoicon": "^0.1.7",
-    "vue-loader": "^17.3.1",
+    "vue-loader": "^15.10.0",
     "vue-socket.io": "^3.0.10",
     "vuetrend": "^0.3.4",
     "vuex": "^3.6.2"
@@ -39,6 +39,9 @@
     "sass-loader": "^10.0.0",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.47.0"
+  },
+  "resolutions": {
+    "vue-loader": "^15.10.0"
   },
   "eslintConfig": {
     "root": true,
