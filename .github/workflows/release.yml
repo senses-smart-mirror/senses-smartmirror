@@ -22,7 +22,7 @@ jobs:
         working-directory: ./src/gui
         run: |
           npm ci --quiet --no-progress
-          npm run build
+          NODE_OPTIONS=--openssl-legacy-provider npm run build
           mkdir ../target/gui
           cp -r dist/* ../target/gui
           cd ../target/gui
@@ -32,7 +32,7 @@ jobs:
         working-directory: ./src/server
         run: |
           npm ci --ignore-scripts
-          npm run build:js
+          npm run build
           mkdir ../target/server
           cp -r dist/* ../target/server
 
@@ -40,7 +40,7 @@ jobs:
         working-directory: ./src/app
         run: |
           npm ci --quiet --no-progress
-          npm run build
+          NODE_OPTIONS=--openssl-legacy-provider npm run build
           mkdir ../target/server/public
           cp -r dist/* ../target/server/public
 
