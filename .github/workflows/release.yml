@@ -21,7 +21,7 @@ jobs:
       - name: build GUI
         working-directory: ./src/gui
         run: |
-          npm ci --quiet --no-progress
+          npm ci --quiet --no-progress --force
           npm run build
           mkdir ../target/gui
           cp -r dist/* ../target/gui
@@ -39,7 +39,7 @@ jobs:
       - name: build APP
         working-directory: ./src/app
         run: |
-          npm ci --quiet --no-progress
+          npm ci --quiet --no-progress --force
           npm run build
           mkdir ../target/server/public
           cp -r dist/* ../target/server/public
@@ -86,7 +86,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing its ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./src/senses-smartmirror.zip
           asset_name: senses-smartmirror.zip
           asset_content_type: application/zip
