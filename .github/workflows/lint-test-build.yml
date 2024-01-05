@@ -16,7 +16,6 @@ jobs:
       - name: Lint, Test & Build GUI
         working-directory: ./src/gui
         run: |
-          npm install --force --package-lock-only
           npm ci --quiet --no-progress
           npm run lint
           NODE_OPTIONS=--openssl-legacy-provider npm run build
